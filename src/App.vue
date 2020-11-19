@@ -2,11 +2,14 @@
   <div id="app">
     <div class="container-fluid">
       <app-header></app-header>
+      <h4>Product Review App</h4>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+
 import Header from "./components/Header.vue";
 export default {
   name: 'app',
