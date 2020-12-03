@@ -44,7 +44,16 @@ export default {
                console.log("My Response: ", myResponse)
 
                this.$store.commit("storeTokenInApp", myResponse.data.token);
+               
                this.$store.commit("storeUserInApp", myResponse.data.user);
+               
+               localStorage.setItem("token", myResponse.data.token);
+                const now = new Date();
+                const expirationDate = new Date(now.getTime() + 60*60*1000);
+                localStorage.setItem("expiration", expirationDate)
+
+                this.$store.dispatch("setLogoutTimer");
+
                this.$router.replace("/account");
            })
            .catch((myError)=>{
