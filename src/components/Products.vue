@@ -16,7 +16,7 @@
                 <tr v-for="thisProduct in products" :key="thisProduct.ProductPK">
                     <th>{{thisProduct.Title}}</th>
                     <td>{{thisProduct.Description}}</td>
-                    <td>{{thisProduct.Price}}</td>
+                    <td>${{thisProduct.Price}}</td>
                     <td>
                         <router-link :to="`/products/${thisProduct.ProductPK}`">
                         <button type="button" class=" btn btn-primary">Details</button>
@@ -33,7 +33,6 @@ export default {
     computed:{
         products(){return this.$store.state.products}
     }
-    
 }
 </script>
 
