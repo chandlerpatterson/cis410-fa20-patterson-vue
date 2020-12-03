@@ -5,7 +5,7 @@
                 <h2 class="text-primary">{{product.Title}}</h2>
                 <br/>
                 <p>Description: <br/> <strong>{{product.Description}}</strong></p>
-                <p>Price: <br/> <strong>{{formattedPrice}}</strong></p>
+                <p>Price: <br/> <strong>${{product.Price}}</strong></p>
             </div>
         </div>
         <br/>
@@ -29,12 +29,6 @@ export default {
             var products = this.$store.state.products;
             var thisProduct = products.find((aProduct)=> aProduct.ProductPK == this.$route.params.pk)
             return thisProduct
-        },
-        formattedBPrice(){
-            return new Intl.NumberFormat("en-US",{
-                style: 'currency',
-                currency: 'USD'
-            }).format(this.product.Price)
         },
         auth(){return this.$store.state.token}
     }
