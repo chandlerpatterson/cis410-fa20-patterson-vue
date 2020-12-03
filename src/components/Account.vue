@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 <tr v-for="thisReview in reviewsByUser" :key="thisReview.ReviewPK">
-                    <th><router-link :to="`/products/${thisgitReview.ProductFK}`">{{thisReview.Title}}</router-link></th>
+                    <th><router-link :to="`/products/${thisReview.ProductFK}`">{{thisReview.Title}}</router-link></th>
                     <th>{{thisReview.Summary}}</th>
                     <th>{{thisReview.Rating}}</th>
                 </tr>
@@ -46,6 +46,7 @@ export default {
             this.reviewsByUser = response.data})
             .catch(()=>{
                 this.accountError = true
+                console.log(response)
             })
     }
 }
